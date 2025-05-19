@@ -39,7 +39,7 @@ export const Card = ({ title, type, link }: CardProps) => {
   }, [link]);
 
   return (
-    <div className="mr-2 mt-2 w-2xs text-gray-700 bg-white rounded-xl shadow-md p-4 space-y-4 max-h-90 ">
+    <div className="hover:bg-gray-100 mr-2 mt-2 w-2xs text-gray-700 bg-white rounded-xl shadow-md p-4 space-y-4 max-h-90 ">
       <div className="flex justify-between">
         {isTweet ? <TwiiterIcon size="lg"/> : <YoutubeIcon size="lg"/>}
         <h2 className="text-xl font-semibold">{title}</h2>
