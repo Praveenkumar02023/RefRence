@@ -1,3 +1,4 @@
+import { useState } from "react"
 import { Button } from "./Components/Button"
 import { Card } from "./Components/Card"
 import { Sidebar } from "./Components/Sidebar"
@@ -6,9 +7,11 @@ import { Logo } from "./icons/Logo"
 import { ShareIcon } from "./icons/ShareIcon"
 import { TwiiterIcon } from "./icons/TwitterIcon"
 import { YoutubeIcon } from "./icons/YoutubeIcon"
+import { AddContent } from "./Components/AddContent"
 
 function App() {
- 
+  
+  const [contentDiv,setContentDiv] = useState(false);
 
   return (
     <>
@@ -31,7 +34,10 @@ function App() {
         </div>
         <div className="pt-4 pr-2 bg-gray-200 flex items-center justify-end ">
     
-          <Button startIcon={<AddIcon size="lg"/>} title="Add Content" size = "lg" type="primary">
+          <Button startIcon={<AddIcon size="lg"/>} title="Add Content"
+          size = "lg"
+          type="primary" 
+          onClick={()=>setContentDiv(true)}>
           </Button>
         
           <Button startIcon={<ShareIcon size="lg"/>} title="Share Brain" size="lg" type="secondary" ></Button>
@@ -45,8 +51,9 @@ function App() {
     </div>
       </div>
    </div>
-    
-    </>
+
+   {contentDiv && <AddContent onClose ={()=>setContentDiv(false)}/>}
+ </>
   ) 
 }
 

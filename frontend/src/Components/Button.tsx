@@ -5,7 +5,8 @@ interface buttonProps{
     startIcon? : ReactElement,
     title : string,
     endIcon? : ReactElement,
-    size : "sm" | "md" | "lg"
+    size : "sm" | "md" | "lg",
+    onClick? : ()=>void
 }
 
 const typeStyles = {
@@ -33,7 +34,7 @@ export const  Button = (props : buttonProps)=>{
     ].join(" ");
 
 
-    return <button className= {className}>
+    return <button className= {className} onClick={props.onClick}>
         <div className="flex items-center justify-center">
             {props.startIcon && <div>{props.startIcon}</div>}
             {props.title}
